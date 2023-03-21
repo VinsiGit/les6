@@ -1,15 +1,24 @@
-import rich
 import sys
 import os
+import json
+
+data = {}
+
+host = sys.argv[1]
 
 
 def myping(host):
     response = os.system("ping -c 1 " + host)
 
     if response == 0:
-        return True
+        data[host] = True
+        print("did work")
     else:
-        return False
+        data[host] = False
+        print("did not work")
+    json.dumps(data)
 
 
-print(myping("www.google.com"))
+myping(host)
+# myping("www.google.com")
+print(data)
