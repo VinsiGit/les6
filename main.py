@@ -1,2 +1,3 @@
 import rich
-import rich
+
+print("Hallo")
