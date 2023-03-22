@@ -19,17 +19,18 @@ body {
   background-color: rgb(139, 139, 139);
 }
 div {
+  padding: 0.5rem;
+  margin: 1rem;
   border-radius: 10px;
   border: 0.3rem solid black;
-  margin: 1rem;
 }
 .input {
   color: black;
   border: none;
 }
 .True {
-  background-color: green;
+  background-color: rgb(84, 214, 84);
 }
 .False {
-  background-color: red;
+  background-color: rgb(213, 77, 77);
 }

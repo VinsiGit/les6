@@ -4,7 +4,7 @@ import json
 import rich
 
 
-def myping(host):
+def ping(host):
     """
     host -> ping\n
     sends a ping to the host and stores the answer in a json
@@ -20,20 +20,19 @@ def myping(host):
     else:
         data = "False"
         print("did not work")
-    print(check)
+    # print(check)
     change = False
     for k, v in check.items():
-        print(k, v)
-        print(host, data)
+        # print(k, v)
+        # print(host, data)
         if (k != host) or (v != data):
             change = True
-            print("work")
+            # print("work")
     if change:
         check[host] = data
     if not check:
         check[host] = data
-        print
-    print(check)
+    # print(check)
 
     with open("bestand.json", "w") as f:
         json.dump(check, f, indent=2)
@@ -47,12 +46,12 @@ def website():
     html = template.read()
     with open("bestand.json", "r") as f:
         data = json.load(f)
-    print(data)
+    # print(data)
     i = []
     for k in data:
-        print(k)
+        # print(k)
         i.append(k)
-    print(i)
+    # print(i)
     i = str(i)
     i = i.replace("'", "")
     i = i.replace(",", "")
@@ -76,8 +75,28 @@ def delete(host):
     """
     with open("bestand.json", "r") as f:
         file = json.load(f)
-    print(file)
-    del file[host]
-
+    # print(file)
+    try:
+        del file[host]
+    except:
+        print("file does not exit")
     with open("bestand.json", "w") as f:
         json.dump(file, f, indent=2)
+
+
+def show():
+    """
+    Shows all of the sites and there state
+    """
+    with open("bestand.json", "r") as f:
+        data = json.load(f)
+    for k, v in data.items():
+        print(f"{k}: {v}")
+
+
+def pingAll():
+    """Goes trought all of the sites in the json file and ping them"""
+    with open("bestand.json", "r") as f:
+        data = json.load(f)
+    for k in data:
+        ping(k)
