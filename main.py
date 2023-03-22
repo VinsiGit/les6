@@ -1,8 +1,10 @@
 import sys
 import os
 import json
-import rich
+from rich.console import Console
 from functions import *
+
+console = Console()
 
 host = ""
 ant = ""
@@ -12,7 +14,8 @@ if len(sys.argv) > 2:
     host = sys.argv[2]
 
 if len(sys.argv) < 2:
-    ant = input("What do you want to do?\nping\ndel\nshow\n")
+    console.print("What do you want to do?\nping\ndel\nshow", style="bold")
+    ant = input()
     if (ant == "ping") or (ant == "del"):
         host = input("What is the host: ")
 

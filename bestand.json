@@ -1,5 +1,8 @@
 {
   "localhost": "True",
   "youtube.com": "True",
-  "google.com": "True"
+  "google.com": "True",
+  "learning.ap.be": "False",
+  "student.ap.be": "False",
+  "github.com": "True"
 }

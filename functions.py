@@ -2,6 +2,9 @@ import sys
 import os
 import json
 import rich
+from rich.console import Console
+
+console = Console()
 
 
 def ping(host):
@@ -91,7 +94,10 @@ def show():
     with open("bestand.json", "r") as f:
         data = json.load(f)
     for k, v in data.items():
-        print(f"{k}: {v}")
+        if v == "True":
+            console.print(f"{k}: {v}", style="bold green")
+        if v == "False":
+            console.print(f"{k}: {v}", style="bold red")
 
 
 def pingAll():
