@@ -4,8 +4,14 @@ import json
 import rich
 from functions import *
 
-host = sys.argv[1]
+input = sys.argv[1]
+host = sys.argv[2]
 
-myping(host)
+if input == "ping":
+    myping(host)
+elif input == "del":
+    print(host)
+    delete(host)
+
 
 website()

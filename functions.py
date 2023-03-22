@@ -5,6 +5,10 @@ import rich
 
 
 def myping(host):
+    """
+    host -> ping\n
+    sends a ping to the host and stores the answer in a json
+    """
     response = os.system("ping -c 1 " + host)
     data = ""
     check = {}
@@ -26,7 +30,9 @@ def myping(host):
             print("work")
     if change:
         check[host] = data
-
+    if not check:
+        check[host] = data
+        print
     print(check)
 
     with open("bestand.json", "w") as f:
@@ -34,7 +40,10 @@ def myping(host):
 
 
 def website():
-    template = open("template.html", "r")
+    """
+    makes the website
+    """
+    template = open("website/template.html", "r")
     html = template.read()
     with open("bestand.json", "r") as f:
         data = json.load(f)
@@ -49,12 +58,26 @@ def website():
     i = i.replace(",", "")
     i = i.replace("]", "")
     i = i.replace("[", "")
-    html = html.replace("X", i)
+
+    html = html.replace('class="input">X', f'class="input">{i}')
     for k, v in data.items():
-        data = f"<br>{k}: {v}"
+        data = f'<div class="{v}">{k}: {v}</div>'
         html = html.replace(k, data)
     template.close()
 
-    index = open("index.html", "w")
+    index = open("website/index.html", "w")
     index.write(html)
     index.close()
+
+
+def delete(host):
+    """
+    deletes the host from the json file
+    """
+    with open("bestand.json", "r") as f:
+        file = json.load(f)
+    print(file)
+    del file[host]
+
+    with open("bestand.json", "w") as f:
+        json.dump(file, f, indent=2)

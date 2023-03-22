@@ -1,0 +1,35 @@
+/* drie basisstijlregels om je te helpen */
+:root {
+  font-size: 100%; /* zet je dit op 62.5%, dan is elke rem 10px waard, anders 16px */
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* hier komt jouw css */
+body {
+  font-size: 3rem;
+  font-family: "Courier New", Courier, monospace;
+  margin: 5rem;
+  background-color: rgb(139, 139, 139);
+}
+div {
+  border-radius: 10px;
+  border: 0.3rem solid black;
+  margin: 1rem;
+}
+.input {
+  color: black;
+  border: none;
+}
+.True {
+  background-color: green;
+}
+.False {
+  background-color: red;
+}
