@@ -63,8 +63,8 @@ def website():
     html = html.replace('class="input">X', f'class="input">{i}')
     for k, v in data.items():
         data = f'<div class="{v}">{k}: {v}</div>'
-        html = re.sub(f"${k}", data, html)
-    # print(re.sub(f"${k}", data, html))
+        html = re.sub(f"\${k}", data, html)
+    print(re.sub(f"\${k}", data, html))
     template.close()
 
     index = open("website/index.html", "w")
