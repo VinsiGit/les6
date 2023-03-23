@@ -16,7 +16,7 @@ body {
   font-size: 3rem;
   font-family: "Courier New", Courier, monospace;
   margin: 5rem;
-  background-color: rgb(139, 139, 139);
+  background-color: gray;
 }
 div {
   padding: 0.5rem;

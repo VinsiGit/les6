@@ -4,5 +4,6 @@
   "google.com": "True",
   "learning.ap.be": "False",
   "student.ap.be": "False",
-  "github.com": "True"
+  "discord.com": "False",
+  "host": "False"
 }

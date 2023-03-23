@@ -1,7 +1,6 @@
-import sys
 import os
 import json
-import rich
+import re
 from rich.console import Console
 
 console = Console()
@@ -53,18 +52,19 @@ def website():
     i = []
     for k in data:
         # print(k)
-        i.append(k)
+        i.append(f"${k}")
     # print(i)
     i = str(i)
     i = i.replace("'", "")
     i = i.replace(",", "")
     i = i.replace("]", "")
     i = i.replace("[", "")
-
+    # print(i)
     html = html.replace('class="input">X', f'class="input">{i}')
     for k, v in data.items():
         data = f'<div class="{v}">{k}: {v}</div>'
-        html = html.replace(k, data)
+        html = re.sub(f"${k}", data, html)
+    # print(re.sub(f"${k}", data, html))
     template.close()
 
     index = open("website/index.html", "w")
